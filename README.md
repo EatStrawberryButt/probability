@@ -6,7 +6,8 @@
 
 
 1. **baseTwo**
-- args: A number greater than 0 and less than 1
+- @param: A number greater than 0 and less than 1
+- @return boolean
 
 **Basic usage**
 
@@ -33,7 +34,8 @@ console.log("list: ", list);
 
 2. baseMore
 
-- args: number[]
+- @param: number[]
+- @return number
 
 **Basic usage**
 
@@ -91,9 +93,25 @@ console.log(a);
 // will get {0: 1006, 1: 1990, 2: 7004, 3: 0}
 ```
 
-### API
+3. baseObject
 
-* **props1: A probability greater than 0 and less than 1**
+- @param: { [key in string]: number }
+- @return: key
 
+```typescript
+
+let list = { a: 0, b: 0, undefined: 0 };
+
+for (let i = 0; i < 1000; i++) {
+  list[
+    `${baseObject({
+      a: 0.2,
+      b: 0.3,
+    })}`
+  ]++;
+}
+console.log(list);
+// will get {a: 203, b: 279, undefined: 518}
+```
 
 enjoy😃
