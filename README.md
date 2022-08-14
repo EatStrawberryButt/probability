@@ -96,20 +96,17 @@ console.log(a);
 3. baseObject
 
 - @param: { [key in string]: number }
-- @return: key
+- @return: keyof typeof param (If you need type support, you need to add the T)
 
 ```typescript
 
 let list = { a: 0, b: 0, undefined: 0 };
 
+const probability = { a: 0.2, b: 0.3 };
 for (let i = 0; i < 1000; i++) {
-  list[
-    `${baseObject({
-      a: 0.2,
-      b: 0.3,
-    })}`
-  ]++;
+  list[`${baseObject<typeof probability>(probability)}`]++;
 }
+
 console.log(list);
 // will get {a: 203, b: 279, undefined: 518}
 ```
